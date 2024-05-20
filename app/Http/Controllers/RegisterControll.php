@@ -33,6 +33,7 @@ class RegisterControll extends Controller
 
         return response()->json([
             'msg' => 'Account successfully created'
+            
         ]);
     }
 }

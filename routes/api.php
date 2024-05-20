@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 //Route Product
-Route::middleware(['jwt-auth'])->group(function () {
+Route::middleware(['jwt-product-auth'])->group(function () {
     Route::post("/product", [ProductControll::class, "store"]);
     Route::get("/product", [ProductControll::class, "ShowAll"]);
     Route::put("/product/{id}", [ProductControll::class, "update"]);
@@ -32,7 +32,7 @@ Route::middleware(['jwt-auth'])->group(function () {
 });
 
 //Route Categories
-Route::middleware(['jwt-auth'])->group(function () {
+Route::middleware(['jwt-categories-auth'])->group(function () {
     Route::post("/categories", [CategoriesControll::class, "store"]);
     Route::get("/categories", [CategoriesControll::class, "ShowAll"]);
     Route::put("/categories/{id}", [CategoriesControll::class, "update"]);

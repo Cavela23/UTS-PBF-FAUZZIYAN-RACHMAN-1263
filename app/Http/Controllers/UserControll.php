@@ -33,7 +33,7 @@ class UserControll extends Controller
                 "exp" => Carbon::now()->timestamp + 60 * 60 * 2,
             ];
 
-            $token = JWT::encode($payload, env("JWT_SECRET_KEY"), "HS256");
+            $token = JWT::encode($payload, (string)env("JWT_SECRET_KEY"), "HS256");
 
             return response()->json([
                 'msg' => 'Token has succesfully created',
