@@ -18,12 +18,13 @@ use App\Http\Controllers\OAuthController;
 |
 */
 
+//Route untuk Oauth Google Aktif
 Route::group(['middleware' => ['web']], function () {
     Route::get('/oauth/register', [OAuthController::class, 'redirect']);
     Route::get('/auth/google/callback', [OAuthController::class, 'callback']);
 });
 
-//Route Product
+//Route untuk Product
 Route::middleware(['jwt-product-auth'])->group(function () {
     Route::post("/product", [ProductControll::class, "store"]);
     Route::get("/product", [ProductControll::class, "ShowAll"]);
@@ -31,7 +32,7 @@ Route::middleware(['jwt-product-auth'])->group(function () {
     Route::delete("/product/{id}", [ProductControll::class, "delete"]);
 });
 
-//Route Categories
+//Route untuk Categories
 Route::middleware(['jwt-categories-auth'])->group(function () {
     Route::post("/categories", [CategoriesControll::class, "store"]);
     Route::get("/categories", [CategoriesControll::class, "ShowAll"]);
@@ -39,10 +40,10 @@ Route::middleware(['jwt-categories-auth'])->group(function () {
     Route::delete("/categories/{id}", [CategoriesControll::class, "delete"]);
 });
 
-//Route Register
+//Route untuk Register
 Route::post("/register", [RegisterControll::class, "store"]);
 
-//Route Login
+//Route untuk Login
 Route::post('/login', [UserControll::class, 'login']);
 
 //Route Oauth
