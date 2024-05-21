@@ -17,5 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/Route untuk Oauth web
 use App\Http\Controllers\OAuthController; //
 Route::get('/auth/google/callback', [OAuthController::class, 'callback']);
